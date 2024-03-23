@@ -1,0 +1,61 @@
+.book-card {
+  border: 1px solid transparent;
+  border-radius: 3%;
+  box-sizing: border-box;
+  max-width: 280px;
+  padding: 10px;
+  text-align: center;
+  -webkit-box-shadow: -4px 10px 9px 3px rgba(219, 206, 219, 1);
+  -moz-box-shadow: -4px 10px 9px 3px rgba(219, 206, 219, 1);
+  box-shadow: -4px 10px 9px 3px rgba(219, 206, 219, 1);
+}
+
+.btn {
+  padding: 10px;
+  font-size: 14px;
+  margin: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.book-card:hover {
+  border: 5px solid rgb(47, 17, 17);
+  cursor: pointer;
+}
+
+.books-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 50px auto;
+  width: 90%;
+  border: 1px solid gainsboro;
+}
+
+.app {
+  width: auto;
+  margin: auto;
+  font-size: 14px;
+}
+
+.card-content {
+  font-size: medium;
+  display: contents;
+}
+
+.btn btn-success {
+  gap: 10px;
+}
+
+.container-fluid {
+  background: honeydew;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  height: 50px;
+  top: 0;
+  width: 100%;
+  overflow: visible;
+  font-size: larger;
+  position: fixed;
+}
