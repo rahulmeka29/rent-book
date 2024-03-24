@@ -22,8 +22,8 @@ const ListBooks = () => {
     try {
       let userId = localStorage.getItem('username');
       const response = await fetch(`http://localhost:3004/api/cart/fetch?userId=${userId}`)
-      if (!response.ok) {
-        //throw new Error('Network response was not ok');
+      if (response.status === 404) {
+        return;
       }
       const data = await response.json(); // Parsing the JSON response
       setIsCartExists(true)
