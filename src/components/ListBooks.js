@@ -18,17 +18,12 @@ const ListBooks = () => {
     fetchdata();
   }, []);
 
-  useEffect(() => {
-    fetchCart();
-  }, [])
-
   const fetchCart = async () => {
     try {
       let userId = localStorage.getItem('username');
       const response = await fetch(`http://localhost:3004/api/cart/fetch?userId=${userId}`)
       if (!response.ok) {
-        throw new Error('Network response was not ok');
-
+        //throw new Error('Network response was not ok');
       }
       const data = await response.json(); // Parsing the JSON response
       setIsCartExists(true)
@@ -48,10 +43,19 @@ const ListBooks = () => {
     setBooks(dataJSON);
   };
 
+  function removeDuplicates(arr) {
+    return arr.filter((item,
+      index) => arr.indexOf(item) === index);
+  }
+
   const handleBuyClick = (BookId) => {
-    setBuyBooks([...buyBooks, BookId])
+    const newBooks = [...buyBooks, BookId];
+    console.log(newBooks)
+    setBuyBooks(removeDuplicates(newBooks));
   }
   const proceedToCart = async () => {
+    const response = await fetchCart();
+    console.log(response);
     if (!isCcartExits) {
       createCart();
     } else {
@@ -64,10 +68,11 @@ const ListBooks = () => {
       "userId": localStorage.getItem("username"),
       "items": buyBooks
     }
+
     const setData = {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      body: data
+      body: JSON.stringify(data)
     }
     try {
       const response = await fetch('http://localhost:3004/api/cart/create', setData)
@@ -141,7 +146,8 @@ const ListBooks = () => {
               pageCount: b.pageCount,
               publishedDate: b.publishedDate.$date,
               thumbnailUrl: b.thumbnailUrl,
-              category: b.categories[0]
+              category: b.categories[0],
+              price: b.price
             };
             return <BookCard {...data} BuyAction={handleBuyClick} />;
           })
