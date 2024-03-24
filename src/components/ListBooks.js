@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const ListBooks = () => {
-  const [isCcartExits, setIsCartExists] = useState(false);
+  const [isCartExists, setIsCartExists] = useState(false);
   const [Books, setBooks] = useState([]);
   const [search, setSearch] = useState("ramayan");
 
@@ -55,11 +55,11 @@ const ListBooks = () => {
   }
   const proceedToCart = async () => {
     const response = await fetchCart();
-    console.log(response);
-    if (!isCcartExits) {
-      createCart();
-    } else {
+    //console.log(response);
+    if (response !== undefined) {
       updateCart();
+    } else {
+      createCart();
     }
     navigate('/cart');
   }
