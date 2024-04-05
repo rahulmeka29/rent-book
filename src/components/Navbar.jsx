@@ -15,11 +15,10 @@ import { useEffect } from "react";
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    if (localStorage.getItem('token') !== '')
-      setIsLoggedIn(true)
-  }, [isLoggedIn])
+    if (localStorage.getItem("token") !== "") setIsLoggedIn(true);
+  }, [isLoggedIn]);
   return (
     //<Link ClassName="navbar" tp="/">
     <AppBar position="static">
@@ -28,15 +27,43 @@ export const Navbar = () => {
           <AutoStoriesIcon />
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <button onClick={() => { navigate('/') }}>Rent-A-Book</button>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Rent-A-Book
+          </button>
         </Typography>
         <Stack direction="row" spacing={1}>
-          <Button color="inherit" to="/">
-            Features
+          <Button
+            color="inherit"
+            to="/Contact-us"
+            onClick={() => {
+              navigate("/ContactUs");
+            }}
+          >
+            Contact-Us
           </Button>
-          <Button color="inherit">Pricing</Button>
-          <Button color="inherit">About-us</Button>
-          {!localStorage.getItem('token') ?
+          <Button
+            color="inherit"
+            to="/Service"
+            onClick={() => {
+              navigate("/Service");
+            }}
+          >
+            Service
+          </Button>
+          <Button
+            color="inherit"
+            to="/Aboutus"
+            onClick={() => {
+              navigate("/Aboutus");
+            }}
+          >
+            About-us
+          </Button>
+          {!localStorage.getItem("token") ? (
             <Button
               color="inherit"
               to="/login"
@@ -45,19 +72,20 @@ export const Navbar = () => {
               }}
             >
               Login-Sign-up
-            </Button> :
+            </Button>
+          ) : (
             <Button
               color="inherit"
               to="/login"
               onClick={() => {
-                localStorage.removeItem('token')
+                localStorage.removeItem("token");
                 setIsLoggedIn(false);
                 navigate("/login");
               }}
             >
               Logout
             </Button>
-          }
+          )}
         </Stack>
       </Toolbar>
     </AppBar>

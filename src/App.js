@@ -7,17 +7,42 @@
 //import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 //import { app } from "./firebase";
 import "./App.css";
-import NoPage from "./components/NoPage";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import { useRoutes } from "react-router-dom";
 import Signup from "./components/Signup";
 import Cart from "./components/BookCart";
 import "./assets/main.css";
-
-
+import Service from "./components/Service";
+import Aboutus from "./components/Aboutus";
+import ContactUs from "./components/ContactUs";
+import Footer from "./components/Footer";
+//import React, { useState } from "react";
+//import Carousel from "./components/Carousel";
+//import BookCard from "./components/BookCard";
 //const auth = getAuth(app);
 function App() {
+  //const Payment = () => {
+  //  const [paymentSuccess, setPaymentSuccess] = useState(false);
+  //
+  //  const handlePaymentSuccess = () => {
+  //    setPaymentSuccess(true);
+  //  };
+  //
+  //  return (
+  //    <div>
+  //      {paymentSuccess ? (
+  //        <div>
+  //          <h2>Payment Successful!</h2>
+  //          <p>Thank you for your payment.</p>
+  //        </div>
+  //      ) : (
+  //        <Payment totalAmount={50} onPaymentSuccess={handlePaymentSuccess} />
+  //      )}
+  //    </div>
+  //  );
+  //};
+
   //   const SignupUser = () => {
   //     createUserWithEmailAndPassword(
   //       auth,
@@ -36,7 +61,10 @@ function App() {
     { path: "login", element: <Login /> },
     { path: "signup", element: <Signup /> },
     { path: "cart", element: <Cart /> },
-    { path: "*", element: <NoPage /> },
+    { path: "Service", element: <Service /> },
+    { path: "Aboutus", element: <Aboutus /> },
+    { path: "ContactUs", element: <ContactUs /> },
+    { path: "Footer", element: <Footer /> },
   ]);
 
   return routes;

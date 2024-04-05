@@ -16,6 +16,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const PaperStyle = {
     padding: 20,
     height: "70vh",
@@ -104,7 +105,7 @@ const Signup = () => {
             </Avatar>
             <h2>Sign-Up</h2>
           </Grid>
-          <TextField sx={{ marginBottom: '20px', marginTop: '20px' }}
+          <TextField sx={{ marginBottom: '20px', marginTop: '30px' }}
             label="Username"
             placeholder="Enter UserName"
             fullWidth

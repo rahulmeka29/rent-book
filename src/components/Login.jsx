@@ -51,7 +51,6 @@ function Login() {
       alert(result.error)
     }
   }
-
   return (
     <div>
       <Link className="login" to="/Login"></Link>
