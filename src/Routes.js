@@ -1,3 +1,4 @@
+import Success from "./components/Success";
 
 const Routes = [
   {
@@ -20,6 +21,11 @@ const Routes = [
         element: <cart />,
         path: "/cart",
         title: "Cart",
+      },
+      {
+        element: <success />,
+        path: "/success",
+        title: "success",
       },
     ],
   },

@@ -45,6 +45,9 @@ function Login() {
       console.log('Got the token: ', result.data)
       localStorage.setItem('token', result.data)
       localStorage.setItem('username', result.username);
+      localStorage.setItem('firstName', result.firstName);
+      localStorage.setItem('lastName', result.lastName);
+      localStorage.setItem('address', result.address);
       navigate('/')
       //alert('Success')
     } else {

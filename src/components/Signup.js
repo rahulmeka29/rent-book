@@ -16,6 +16,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
   const PaperStyle = {
     padding: 20,
     height: "70vh",
@@ -32,7 +35,10 @@ const Signup = () => {
       },
       body: JSON.stringify({
         username,
-        password
+        password,
+        firstName,
+        lastName,
+        address
       })
     }).then((res) => res.json())
 
@@ -44,56 +50,7 @@ const Signup = () => {
   }
 
   return (
-    /*
-    <div className="flex flex-nowrap shadow-lg bg-red justify-center align-items mx-auto mt-2"> 
-      <div className="bg-slate-100 border border-black w-[300px]">
-        <form onSubmit={async (e) => {
-          e.preventDefault();
-          console.log(e.target.value)
-          const result = await fetch('http://localhost:3003/api/users/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              username,
-              password
-            })
-          }).then((res) => res.json())
 
-          if (result.status === 'ok') {
-            // everythign went fine
-            alert('Success')
-          } else {
-            alert(result.error)
-          }
-
-        }}>
-
-
-          <label>email</label>
-          <input
-            placeholder="Enter Email"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            name="username"
-            type="email"
-          ></input>
-          <label>Password</label>
-          <input
-            placeholder="Enter Password"
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            name="password"
-            value={password}
-          ></input>
-          <button type="submit">Signup</button>
-
-
-
-        </form >
-      </div>
-    </div>*/
     <div>
       <Link className="login" to="/Login"></Link>
       <Grid>
@@ -118,6 +75,30 @@ const Signup = () => {
             fullWidth
             required
             onChange={(e) => { setPassword(e.target.value) }}
+          />
+          <TextField sx={{ marginBottom: '20px' }}
+            label="First Name"
+            placeholder="First Name"
+            type="text"
+            fullWidth
+            required
+            onChange={(e) => { setFirstName(e.target.value) }}
+          />
+          <TextField sx={{ marginBottom: '20px' }}
+            label="Last Name"
+            placeholder="Last Name"
+            type="text"
+            fullWidth
+            required
+            onChange={(e) => { setLastName(e.target.value) }}
+          />
+          <TextField sx={{ marginBottom: '20px' }}
+            label="Address"
+            placeholder="Address"
+            type="text"
+            fullWidth
+            required
+            onChange={(e) => { setAddress(e.target.value) }}
           />
           <div className="mx-auto text-center">
             <Button color="primary" variant="contained" onClick={register} sx={{ width: "200px" }}>

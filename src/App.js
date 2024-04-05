@@ -14,6 +14,7 @@ import { useRoutes } from "react-router-dom";
 import Signup from "./components/Signup";
 import Cart from "./components/BookCart";
 import "./assets/main.css";
+import Success from "./components/Success";
 
 
 //const auth = getAuth(app);
@@ -36,6 +37,7 @@ function App() {
     { path: "login", element: <Login /> },
     { path: "signup", element: <Signup /> },
     { path: "cart", element: <Cart /> },
+    { path: "success", element: <Success /> },
     { path: "*", element: <NoPage /> },
   ]);
 
