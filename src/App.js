@@ -20,6 +20,8 @@ import Footer from "./components/Footer";
 //import React, { useState } from "react";
 //import Carousel from "./components/Carousel";
 //import BookCard from "./components/BookCard";
+import Success from "./components/Success";
+
 //const auth = getAuth(app);
 function App() {
   //const Payment = () => {
@@ -65,6 +67,8 @@ function App() {
     { path: "Aboutus", element: <Aboutus /> },
     { path: "ContactUs", element: <ContactUs /> },
     { path: "Footer", element: <Footer /> },
+    { path: "success", element: <Success /> },
+    { path: "*", element: <NoPage /> },
   ]);
 
   return routes;

@@ -4,7 +4,7 @@ import BookCard from "./BookCard";
 import { useNavigate } from "react-router-dom";
 
 const ListBooks = () => {
-  const [isCcartExits, setIsCartExists] = useState(false);
+  const [isCartExists, setIsCartExists] = useState(false);
   const [Books, setBooks] = useState([]);
   const [search, setSearch] = useState("Android");
 
@@ -20,12 +20,10 @@ const ListBooks = () => {
 
   const fetchCart = async () => {
     try {
-      let userId = localStorage.getItem("username");
-      const response = await fetch(
-        `http://localhost:3006/api/cart/fetch?userId=${userId}`
-      );
-      if (!response.ok) {
-        //throw new Error('Network response was not ok');
+      let userId = localStorage.getItem('username');
+      const response = await fetch(`http://localhost:3004/api/cart/fetch?userId=${userId}`)
+      if (response.status === 404) {
+        return;
       }
       const data = await response.json(); // Parsing the JSON response
       setIsCartExists(true);
@@ -55,11 +53,11 @@ const ListBooks = () => {
   };
   const proceedToCart = async () => {
     const response = await fetchCart();
-    console.log(response);
-    if (!isCcartExits) {
-      createCart();
-    } else {
+    //console.log(response);
+    if (response !== undefined) {
       updateCart();
+    } else {
+      createCart();
     }
     navigate("/cart");
   };
